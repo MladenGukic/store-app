@@ -3,12 +3,9 @@
     <img width="25%" src="./assets/logo.png">
     <nav>
       <ul>
-        <li>
-          <router-link to="/customers">Customers</router-link>
-        </li>
-        <li>
+          <router-link to="/customers">Customers</router-link> |
+            
           <router-link to="/products">Products</router-link>
-        </li>
       </ul>
     </nav>
     <router-view/>
