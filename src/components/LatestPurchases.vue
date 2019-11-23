@@ -21,9 +21,11 @@ export default {
     },
 
 
-    computed: {
-      customer: () => {console.log(customerService.find(parseInt(this.$route.params.id)))}
+    computed: {   
+customer() {
+      return customerService.find(parseInt(this.$route.params.id));
     }
+}
 }
 // this.$route.params.id
 </script>
