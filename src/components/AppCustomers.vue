@@ -9,7 +9,8 @@
   <div v-bind:key="index" v-for="(customer, index) in customers">
       <ul>
           <li>
-              Customer: {{customer.fullName + ' ' + customer.email}}
+              Customer: {{customer.fullName + ' ' + customer.email}} |
+              <button class="btn-link" @click="navigateToLatestPurchases(customer.id)"> Latest Purchases </button>
                 <button @click="remove(customer)" class="btn btn-primary"> Remove </button>
           </li>
       </ul>
@@ -35,6 +36,10 @@ export default {
 
       add() {
           customerService.add(this.form)
+      },
+
+      navigateToLatestPurchases(id) {
+          this.$router.push({name: "latestPurchases", params: {id}})
       }
   },
 
