@@ -1,7 +1,10 @@
 <template>
   <div class="blog">
     <h1> Products </h1>
-    <div v-bind:key="index" v-for="(product, index) in products">
+  <div>
+    <input class="form-control" type="text" v-model="search" placeholder="Search Products"/>
+  </div>
+    <div v-bind:key="index" v-for="(product, index) in filteredProducts">
       <ul>
         <li>
           <p>Product: {{product.name}}</p>
@@ -19,7 +22,16 @@ export default {
   name: 'AppProducts',
   data() {
     return {
-      products:  productService.list()
+      products:  productService.list(),
+      search: ''
+    }
+  },
+
+  computed: {
+    filteredProducts: function() {
+      return this.products.filter((product) => {
+        return product.name.toLowerCase().match(this.search.toLowerCase())
+      })
     }
   }
 }
