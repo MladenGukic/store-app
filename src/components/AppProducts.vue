@@ -7,7 +7,10 @@
     <div v-bind:key="index" v-for="(product, index) in filteredProducts">
       <ul>
         <li>
-          <p>Product: {{product.name}}</p>
+          Product: {{product.name}} 
+          <button @click="incQuantity(product)" type="button" class="btn btn-outline-success btn-sm">+</button>
+          <button @click="decQuantity(product)" type="button" class="btn btn-outline-danger btn-sm">-</button>  |
+          {{product.quantity}}
         </li>
       </ul>
     </div>
@@ -25,6 +28,17 @@ export default {
       products:  productService.list(),
       search: ''
     }
+  },
+
+  methods: {
+    incQuantity(product) {
+      productService.increment(product)
+    },
+
+    decQuantity(product) {
+      productService.decrement(product)
+    }
+
   },
 
   computed: {
