@@ -1,13 +1,27 @@
 <template>
   <div class="blog">
     <h1> Products </h1>
+    <div v-bind:key="index" v-for="(product, index) in products">
+      <ul>
+        <li>
+          <p>Product: {{product.name}}</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+
+import { productService } from '../services/ProductService'
+
 export default {
   name: 'AppProducts',
-  
+  data() {
+    return {
+      products:  productService.list()
+    }
+  }
 }
 </script>
 
