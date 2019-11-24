@@ -4,6 +4,7 @@ import App from './App.vue'
 import AppCustomers from './components/AppCustomers'
 import AppProducts from './components/AppProducts'
 import LatestPurchases from './components/LatestPurchases'
+import BuyProduct from './components/BuyProduct'
 
 Vue.use (VueRouter)
 
@@ -12,7 +13,8 @@ Vue.config.productionTip = false
 const routes = [
   {name: 'products', path: '/products', component: AppProducts },
   {name: 'customers', path: '/customers', component: AppCustomers },
-  {name: 'latestPurchases', path: '/customers/:id', component: LatestPurchases}
+  {name: 'latestPurchases', path: '/customers/:id', component: LatestPurchases},
+  {name: 'buyProduct', path: '/products/:id', component: BuyProduct}
 ]
 
 const router = new VueRouter({

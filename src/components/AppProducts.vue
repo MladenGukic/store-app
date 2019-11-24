@@ -7,10 +7,10 @@
     <div v-bind:key="index" v-for="(product, index) in filteredProducts">
       <ul>
         <li>
-          Product: {{product.name}} 
+          Product: {{product.name}} | {{product.quantity}}
           <button @click="incQuantity(product)" type="button" class="btn btn-outline-success btn-sm">+</button>
-          <button @click="decQuantity(product)" type="button" class="btn btn-outline-danger btn-sm">-</button>  |
-          {{product.quantity}}
+          <button @click="decQuantity(product)" type="button" class="btn btn-outline-danger btn-sm">-</button>
+          <button class="btn-link" @click="navigateToBuyProduct(product.id)"> Buy </button>
         </li>
       </ul>
     </div>
@@ -37,6 +37,10 @@ export default {
 
     decQuantity(product) {
       productService.decrement(product)
+    },
+
+    navigateToBuyProduct(id) {
+      this.$router.push({name: 'buyProduct', params: {id}})
     }
 
   },

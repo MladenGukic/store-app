@@ -3,9 +3,20 @@
     <h1> LatestPurchases </h1>
     
     <p>{{customer.fullName}} | email : {{customer.email}}</p>
-
-    
-    
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"> Name </th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr v-for="product in customer.products" :key="product.id">
+            <td>{{ product.name }}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
   </div>
 </template>
 
